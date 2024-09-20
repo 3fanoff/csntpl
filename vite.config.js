@@ -3,8 +3,10 @@ import aliasImporter from 'node-sass-alias-importer';
 import handlebars from 'vite-plugin-handlebars';
 
 console.log(process.env);
+const basePath =  process.env.GITHAB_PAGES_BASE_PATH ?? '/';
 
 export default {
+  base: basePath,
   root: resolve(__dirname, 'src'),
   build: {
     outDir: '../dist',
