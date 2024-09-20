@@ -2,6 +2,8 @@ import {resolve} from 'path';
 import aliasImporter from 'node-sass-alias-importer';
 import handlebars from 'vite-plugin-handlebars';
 
+console.log(process.env);
+
 export default {
   root: resolve(__dirname, 'src'),
   build: {
