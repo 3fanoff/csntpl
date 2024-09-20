@@ -67,6 +67,8 @@ $accordion-button-padding-x: $accordion-padding-x + $accordion-icon-width;
 $accordion-button-icon:         url("data:image/svg+xml,<svg viewBox='0 0 448 512' xmlns='http://www.w3.org/2000/svg' fill='#{$accordion-icon-color}'><path d='M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z'></path></svg>");
 $accordion-button-active-icon:  url("data:image/svg+xml,<svg viewBox='0 0 448 512' xmlns='http://www.w3.org/2000/svg' fill='#{$accordion-icon-active-color}'><path d='M416 208H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h384c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z'></path></svg>");
 
+$nav-link-color:                    var(--#{$prefix}body-color);
+
 @import "~bootstrap/scss/mixins/banner";
 @include bsBanner("");
 
@@ -79,13 +81,21 @@ $accordion-button-active-icon:  url("data:image/svg+xml,<svg viewBox='0 0 448 51
 @import "~bootstrap/scss/maps";
 @import "~bootstrap/scss/mixins";
 @import "~bootstrap/scss/utilities";
+
 $utilities: map-merge(
   $utilities,
   (
-    "opacity":(
+    "opacity": (
       property: opacity,
+      class: opacity,
+      state: hover,
       values: (
-        60: 0.6
+        0: 0,
+        25: .25,
+        50: .5,
+        60: .6,
+        75: .75,
+        100: 1,
       )
     )
   )
@@ -161,3 +171,4 @@ $flag-icons-path: '../../node_modules/flag-icons/flags';
 }
 @import "./custom/block/carousel";
 @import "./custom/block/provider";
+@import "./fonts/casino-icons";

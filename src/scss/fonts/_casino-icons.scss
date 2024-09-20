@@ -1,0 +1,80 @@
+@font-face {
+  font-family: 'casino';
+  src:
+          url('@fonts/casino.ttf?9rdp6m') format('truetype'),
+          url('@fonts/casino.woff?9rdp6m') format('woff'),
+          url('@fonts/casino.svg?9rdp6m#casino') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="casino-"], [class*=" casino-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'casino' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.casino-eighteen:before {
+  content: "\e900";
+}
+.casino-bonus:before {
+  content: "\e901";
+}
+.casino-bonus_pack:before {
+  content: "\e902";
+}
+.casino-cashier:before {
+  content: "\e903";
+}
+.casino-casino:before {
+  content: "\e904";
+}
+.casino-GambleAware:before {
+  content: "\e905";
+}
+.casino-GamCare:before {
+  content: "\e906";
+}
+.casino-hot:before {
+  content: "\e907";
+}
+.casino-info:before {
+  content: "\e908";
+}
+.casino-instant:before {
+  content: "\e909";
+}
+.casino-jackpot:before {
+  content: "\e90a";
+}
+.casino-live:before {
+  content: "\e90b";
+}
+.casino-loyalty:before {
+  content: "\e90c";
+}
+.casino-popular:before {
+  content: "\e90d";
+}
+.casino-promo:before {
+  content: "\e90e";
+}
+.casino-slots:before {
+  content: "\e90f";
+}
+.casino-support:before {
+  content: "\e910";
+}
+.casino-tournaments:before {
+  content: "\e911";
+}
