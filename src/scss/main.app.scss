@@ -1,0 +1,163 @@
+
+
+$primary:       #001022;
+$secondary:     #04386E;
+$tertiary:      #022244;
+$quaternary:    #0A519E;
+$dark:          #000;
+$success:       #FA4D00;
+$light:         #DDE4EC;
+
+$link-color:    $success;
+
+$gray-900: #212529;
+$body-color:                #FFF;
+$body-bg: $secondary;
+
+$theme-colors: (
+        "primary":    $primary,
+        "secondary":  $secondary,
+        "tertiary":   $tertiary,
+        "quaternary": $quaternary,
+        "success":    $success,
+        "dark":       $dark,
+        "light":      $light,
+);
+
+$prefix:                      bs-;
+
+$grid-breakpoints: (
+        xs: 0,
+        sm: 768px,
+        md: 1024px,
+);
+$container-max-widths: (
+        md: 1170px,
+);
+$grid-columns:                18;
+$grid-gutter-width:           1.5rem;
+$grid-row-columns:            6;
+
+$font-size-base:              1rem; // Assumes the browser default, typically `16px`
+$small-font-size:             .8125rem;
+
+$input-btn-padding-y:         .5rem;
+$input-btn-padding-x:         .75rem;
+$input-btn-line-height:       1;
+$input-btn-padding-y-sm:      .47rem;
+$input-btn-padding-x-sm:      .5rem;
+//$btn-padding-y:               $input-btn-padding-y;
+//$btn-padding-x:               $input-btn-padding-x;
+//$btn-line-height:             $input-btn-line-height;
+$btn-color:                   var(--#{$prefix}white-rgb);
+
+$accordion-border-width: 0;
+$accordion-border-radius: 0;
+$accordion-bg: transparent;
+$accordion-color:                         var(--#{$prefix}body-color);
+$accordion-padding-y:                     0.625rem;
+$accordion-padding-x:                     0.625rem;
+$accordion-icon-color:                    $body-color;
+$accordion-icon-active-color:             $body-color;
+$accordion-icon-width:                    1rem;
+$accordion-button-active-bg:              transparent;
+$accordion-button-active-color:           $accordion-color;
+$accordion-button-focus-box-shadow: none;
+$accordion-button-padding-x: $accordion-padding-x + $accordion-icon-width;
+$accordion-button-icon:         url("data:image/svg+xml,<svg viewBox='0 0 448 512' xmlns='http://www.w3.org/2000/svg' fill='#{$accordion-icon-color}'><path d='M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z'></path></svg>");
+$accordion-button-active-icon:  url("data:image/svg+xml,<svg viewBox='0 0 448 512' xmlns='http://www.w3.org/2000/svg' fill='#{$accordion-icon-active-color}'><path d='M416 208H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h384c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z'></path></svg>");
+
+@import "~bootstrap/scss/mixins/banner";
+@include bsBanner("");
+
+// scss-docs-start import-stack
+// Configuration
+
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/variables-dark";
+@import "~bootstrap/scss/maps";
+@import "~bootstrap/scss/mixins";
+@import "~bootstrap/scss/utilities";
+$utilities: map-merge(
+  $utilities,
+  (
+    "opacity":(
+      property: opacity,
+      values: (
+        60: 0.6
+      )
+    )
+  )
+);
+
+
+// Layout & components
+@import "~bootstrap/scss/root";
+@import "~bootstrap/scss/reboot";
+@import "~bootstrap/scss/type";
+@import "~bootstrap/scss/images";
+@import "~bootstrap/scss/containers";
+@import "~bootstrap/scss/grid";
+@import "~bootstrap/scss/tables";
+@import "~bootstrap/scss/forms";
+@import "~bootstrap/scss/buttons";
+@each $color, $value in $theme-colors {
+  .btn-#{$color} {
+    --#{$prefix}btn-color: var(--#{$prefix}white);
+    --#{$prefix}btn-hover-color: var(--#{$prefix}white);
+  }
+}
+@import "~bootstrap/scss/transitions";
+@import "~bootstrap/scss/dropdown";
+@import "~bootstrap/scss/button-group";
+@import "~bootstrap/scss/nav";
+@import "~bootstrap/scss/navbar";
+@import "~bootstrap/scss/card";
+@import "~bootstrap/scss/accordion";
+.accordion {
+  $accordion-icon-height: 1.1rem;
+  --#{$prefix}accordion-btn-icon-height: #{$accordion-icon-height};
+}
+.accordion-button::after {
+  position: absolute;
+  left: 0;
+  height: var(--#{$prefix}accordion-btn-icon-height);
+}
+
+@import "~bootstrap/scss/breadcrumb";
+@import "~bootstrap/scss/pagination";
+@import "~bootstrap/scss/badge";
+@import "~bootstrap/scss/alert";
+@import "~bootstrap/scss/progress";
+@import "~bootstrap/scss/list-group";
+@import "~bootstrap/scss/close";
+@import "~bootstrap/scss/toasts";
+@import "~bootstrap/scss/modal";
+@import "~bootstrap/scss/tooltip";
+@import "~bootstrap/scss/popover";
+@import "~bootstrap/scss/carousel";
+@import "~bootstrap/scss/spinners";
+@import "~bootstrap/scss/offcanvas";
+@import "~bootstrap/scss/placeholders";
+
+// Helpers
+@import "~bootstrap/scss/helpers";
+
+// Utilities
+@import "~bootstrap/scss/utilities/api";
+// scss-docs-end import-stack
+
+$flag-icons-included-countries: (
+  ru, gb, fr, de, es, kz, us, it
+);
+$flag-icons-path: '../../node_modules/flag-icons/flags';
+
+@import "~flag-icons/sass/flag-icons";
+.fi {
+  width: 2em;
+  height: 1.333em;
+  text-decoration: none;
+}
+@import "./custom/block/carousel";
+@import "./custom/block/provider";

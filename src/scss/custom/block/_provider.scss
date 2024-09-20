@@ -1,0 +1,11 @@
+.cs-provider-item {
+  transition: .3s transform;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+  svg {
+    width: auto;
+    height: 100%;
+  }
+}
