@@ -9,14 +9,14 @@
 <body>
 <header class="sticky-top">
 	<div class="container-fluid bg-quaternary">
-		<div class="container d-flex justify-content-between align-items-center">
+		<div class="container hstack">
 			<a class="cs-header-logo d-block" href="#">
 				<img width="218" height="37"
 					 src="https://mostbet.rest/wp-content/uploads/2024/07/mostbet_logo.svg"
-					 class=""
+					 class="img-fluid"
 					 alt="Иконка с изображением официального логотипа Mostbet, представляющая бренд с его смелым и узнаваемым дизайном.">
 			</a>
-			<div class="cs-header-links">
+			<div class="cs-header-links ms-auto">
 				<button type="button" class="btn btn-link">Войти</button>
 				<button type="button" class="btn btn-success">Регистрация</button>
 				<a href="#" class="d-inline-flex fi fi-ru"></a>
@@ -65,25 +65,12 @@
 		</div>
 	</div>
 
-	<div class="container">
+	<div class="container bg-dark">
 		<div class="row">
 			<div class="col">
-				<div class="bg-quaternary">
-					<p>Mostbet Casino — это ведущая онлайн-платформа, которая с 2009 года предлагает своим пользователям широкий спектр азартных игр и спортивных ставок. Будучи лицензированным оператором, Mostbet гарантирует безопасность и честность игрового процесса, привлекая игроков со всего мира благодаря высококачественному сервису и разнообразным бонусным предложениям.
-					<h1>История и лицензия букмекера Mostbet h1</h1>
-					<p>Основанное в 2009 году, Mostbet быстро завоевало популярность благодаря своему инновационному подходу и надежности. Казино действует под лицензией правительства Кюрасао. </p>
-					<h2>История и лицензия букмекера Mostbet h2</h2>
-					<p>Наличие лицензии Кюрасао означает, что Mostbet Casino обязано соблюдать ряд требований, включая защиту данных пользователей с использованием современных технологий шифрования SSL</p>
-					<h3>Ставки на спортивные события h3</h3>
-					<p>Mostbet Casino предлагает своим пользователям огромный выбор спортивных мероприятий для ставок.</p>
-					<h4>Разнообразие игр и бонусов h4</h4>
-					<p>Платформа Mostbet предлагает более 3000 игр от ведущих мировых провайдеров, таких как Iron Dog, Mancala, и Spinomenal. В дополнение к широкому выбору слотов, пользователи могут насладиться настольными играми, лотереями и живыми дилерами. Платформа регулярно обновляет свои бонусные предложения, предоставляя новые возможности для выигрыша и участия в различных акциях и турнирах.</p>
-				</div>
-				<div>
-
-				</div>
+				{{> tabs}}
 			</div>
-			<div class="col-sm-5">
+			<div class="col-md-5 d-none d-md-block">
 				<div class="d-flex justify-content-between" style="background: green; min-height: 500px">
 					<span>right</span>
 					<span>right end</span>
@@ -188,7 +175,7 @@
 	<div class="container">
 		<div class="row">
 
-			<div class="col col-sm-4 text-center">
+			<div class="col-18 col-md-4 text-center">
 				<a href="#" class="cs-footer-logo opacity-60">
 					<img width="64" height="64"
 						 src="https://mostbet.rest/wp-content/uploads/2024/07/mostbet_icon.svg"
@@ -203,22 +190,22 @@
 				</span>
 			</div>
 
-			<div class="col col-sm-10">
+			<div class="col-18 col-md-10">
 				<nav class="nav justify-content-around">
 					<a class="nav-link active" href="#">Условия</a>
 					<a class="nav-link" href="#">Конфиденциальность</a>
 					<a class="nav-link" href="#">Криптовалюта</a>
 					<a class="nav-link" href="#">Контакты</a>
 				</nav>
-				<div class="d-flex justify-content-center">
+				<div>
 					{{> cryptos}}
 				</div>
-				<div class="d-flex justify-content-center">
+				<div>
 					{{> payments}}
 				</div>
 			</div>
 
-			<div class="col col-sm-4">
+			<div class="col-18 col-md-4 d-flex flex-wrap justify-content-around d-md-block">
 				<nav class="nav justify-content-around">
 					<a class="nav-link" href="#">Ответственная игра</a>
 				</nav>
@@ -227,6 +214,7 @@
 					<i class="casino-GambleAware"></i>
 					<i class="casino-GamCare"></i>
 				</div>
+				<div class="small text-center w-100">© 2009 - 2024 Mostbet. Все права защищены.</div>
 			</div>
 		</div>
 	</div>

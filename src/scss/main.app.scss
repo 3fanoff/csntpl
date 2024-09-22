@@ -14,6 +14,8 @@ $gray-900: #212529;
 $body-color:                #FFF;
 $body-bg: $secondary;
 
+$font-family-sans-serif:  Roboto, "Helvetica Neue", "Noto Sans", system-ui, -apple-system, "Segoe UI", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
+
 $theme-colors: (
         "primary":    $primary,
         "secondary":  $secondary,
@@ -68,6 +70,12 @@ $accordion-button-icon:         url("data:image/svg+xml,<svg viewBox='0 0 448 51
 $accordion-button-active-icon:  url("data:image/svg+xml,<svg viewBox='0 0 448 512' xmlns='http://www.w3.org/2000/svg' fill='#{$accordion-icon-active-color}'><path d='M416 208H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h384c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z'></path></svg>");
 
 $nav-link-color:                    var(--#{$prefix}body-color);
+$nav-link-padding-x:                .4rem;
+$nav-link-padding-y:                .4rem;
+$nav-tabs-border-width:             0;
+$nav-tabs-border-radius:            var(--#{$prefix}border-radius);
+$nav-tabs-link-active-color:        var(--#{$prefix}body-color);
+$nav-tabs-link-active-bg:           var(--#{$prefix}secondary);
 
 @import "~bootstrap/scss/mixins/banner";
 @include bsBanner("");
@@ -122,6 +130,32 @@ $utilities: map-merge(
 @import "~bootstrap/scss/dropdown";
 @import "~bootstrap/scss/button-group";
 @import "~bootstrap/scss/nav";
+
+$nav-tabs-link-padding-x: .75rem;
+$nav-tabs-link-padding-y: .375rem;
+$nav-tabs-link-padding-top: .1875rem;
+
+.nav-link {
+  line-height: 1;
+}
+
+.nav-tabs {
+  --#{$prefix}nav-tabs-link-padding-x: #{$nav-tabs-link-padding-x};
+  --#{$prefix}nav-tabs-link-padding-y: #{$nav-tabs-link-padding-y};
+  --#{$prefix}nav-tabs-link-padding-top: #{$nav-tabs-link-padding-top};
+
+  .nav-link {
+    padding: var(--#{$prefix}nav-tabs-link-padding-y) var(--#{$prefix}nav-tabs-link-padding-x);
+    padding-top: var(--#{$prefix}nav-tabs-link-padding-top);
+    line-height: var(--#{$prefix}body-line-height);
+  }
+  .nav-link:hover {
+    color: var(--#{$prefix}nav-tabs-link-active-color);
+    background-color: var(--#{$prefix}nav-tabs-link-active-bg);
+    background-image: linear-gradient(180deg, var(--#{$prefix}quaternary) 0%, var(--#{$prefix}secondary) 33%);
+  }
+}
+
 @import "~bootstrap/scss/navbar";
 @import "~bootstrap/scss/card";
 @import "~bootstrap/scss/accordion";
@@ -171,4 +205,5 @@ $flag-icons-path: '../../node_modules/flag-icons/flags';
 }
 @import "./custom/block/carousel";
 @import "./custom/block/provider";
+@import "./custom/block/payment";
 @import "./fonts/casino-icons";
