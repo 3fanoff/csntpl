@@ -5,79 +5,53 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>{{title}}</title>
 	<script type="module" src="./js/main.js"></script>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100&display=swap" rel="stylesheet">
 </head>
 <body>
 <header class="sticky-top">
 	<div class="container-fluid bg-quaternary">
-		<div class="container hstack">
+		<div class="container hstack gap-4 py-4">
 			<a class="cs-header-logo d-block" href="#">
 				<img width="218" height="37"
 					 src="https://mostbet.rest/wp-content/uploads/2024/07/mostbet_logo.svg"
 					 class="img-fluid"
 					 alt="Иконка с изображением официального логотипа Mostbet, представляющая бренд с его смелым и узнаваемым дизайном.">
 			</a>
-			<div class="cs-header-links ms-auto">
-				<button type="button" class="btn btn-link">Войти</button>
-				<button type="button" class="btn btn-success">Регистрация</button>
-				<a href="#" class="d-inline-flex fi fi-ru"></a>
+			<div class="cs-header-links ms-auto hstack gap-4">
+				<button type="button" class="btn btn-link px-0 d-none d-sm-flex">Войти</button>
+				<button type="button" class="btn btn-success icon-link"><i class="casino-instant"></i>Регистрация</button>
+				<a href="#" class="btn btn-link fi fi-ru"></a>
 			</div>
 		</div>
 	</div>
 </header>
 <main>
-	<div class="container-fluid bg-dark">
+	<div class="container-fluid pb-5 bg-dark">
+		<div class="container py-2 gx-5 bg-secondary">
+			{{> card-carousel}}
+		</div>
+	</div>
+	<div class="container gx-4 gx-sm-6 bg-dark">
+		<div class="container cs-title">
+			<h1>Букмекер и казино Мостбет — зеркало, слоты и ставки на официальном сайте</h1>
+		</div>
 		<div class="container">
-			<div class="cs-carousel js-carousel-gallery" data-options='{"viewport":{"md": 3, "sm": 2, "xs": 1}, "offset": {"md": 1}}'>
-				<div class="cs-carousel__inner backdrop">
-					<div class="row cs-carousel__wrap js-carousel-gallery__wrap">
-						<div class="col-md-6 col-sm-9 col-18 cs-carousel__item js-carousel-gallery__item">
-							<img src="https://placehold.co/400x220/orange/FFF?text=Первый" alt="text" width="100%" >
-						</div>
-						<div class="col-md-6 col-sm-9 col-18 cs-carousel__item js-carousel-gallery__item">
-							<img src="https://placehold.co/400x220/ССС/FFF?text=Второй" alt="text" width="100%" >
-						</div>
-						<div class="col-md-6 col-sm-9 col-18 cs-carousel__item js-carousel-gallery__item">
-							<img src="https://placehold.co/400x220/yellow/000?text=Третий" alt="text" width="100%" >
-						</div>
-						<div class="col-md-6 col-sm-9 col-18 cs-carousel__item js-carousel-gallery__item">
-							<img src="https://placehold.co/400x220/red/FFF?text=Четвертый" alt="text" width="100%" >
-						</div>
-						<div class="col-md-6 col-sm-9 col-18 cs-carousel__item js-carousel-gallery__item">
-							<img src="https://placehold.co/400x220/grey/FFF?text=Пятый" alt="text" width="100%" >
-						</div>
+			<div class="row">
+				<div class="col">
+					{{> tabs}}
+				</div>
+				<div class="col-md-5 d-none d-md-block">
+					<div class="d-flex justify-content-between" style="background: green; min-height: 500px">
+						<span>right</span>
+						<span>right end</span>
 					</div>
-					<div class="carousel-indicators">
-						<button type="button" data-index="0" class="js-carousel-gallery__point active"></button>
-						<button type="button" data-index="1" class="js-carousel-gallery__point"></button>
-						<button type="button" data-index="2" class="js-carousel-gallery__point"></button>
-						<button type="button" data-index="3" class="js-carousel-gallery__point"></button>
-						<button type="button" data-index="4" class="js-carousel-gallery__point"></button>
-					</div>
-					<!--<ol class="slider-points carousel-box__slider-points">
-						<li class="js-carousel-gallery__point active" data-index="0"></li>
-						<li class="js-carousel-gallery__point" data-index="1"></li>
-						<li class="js-carousel-gallery__point" data-index="2"></li>
-						<li class="js-carousel-gallery__point" data-index="3"></li>
-						<li class="js-carousel-gallery__point" data-index="4"></li>
-					</ol>-->
 				</div>
 			</div>
 		</div>
 	</div>
 
-	<div class="container bg-dark">
-		<div class="row">
-			<div class="col">
-				{{> tabs}}
-			</div>
-			<div class="col-md-5 d-none d-md-block">
-				<div class="d-flex justify-content-between" style="background: green; min-height: 500px">
-					<span>right</span>
-					<span>right end</span>
-				</div>
-			</div>
-		</div>
-	</div>
 	<div class="container">
 		<div class="cs-carousel cs-carousel--sm-4 js-carousel-gallery" data-options='{"viewport":{"md": 6, "sm": 4, "xs": 1}, "offset": {"md": 1}}'>
 			<div class="cs-carousel__inner backdrop">

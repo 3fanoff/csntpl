@@ -1,9 +1,8 @@
-
-
 $primary:       #001022;
 $secondary:     #04386E;
 $tertiary:      #022244;
 $quaternary:    #0A519E;
+$quinary:       #0000EE;
 $dark:          #000;
 $success:       #FA4D00;
 $light:         #DDE4EC;
@@ -21,6 +20,7 @@ $theme-colors: (
         "secondary":  $secondary,
         "tertiary":   $tertiary,
         "quaternary": $quaternary,
+        "quinary":    $quinary,
         "success":    $success,
         "dark":       $dark,
         "light":      $light,
@@ -37,11 +37,30 @@ $container-max-widths: (
         md: 1170px,
 );
 $grid-columns:                18;
-$grid-gutter-width:           1.5rem;
+$grid-gutter-width:           2rem;
 $grid-row-columns:            6;
 
+$spacer: 1rem;
+$spacers: (
+        0: 0,
+        1: $spacer * .25,
+        2: $spacer * .5,
+        3: $spacer * .75,
+        4: $spacer,
+        5: $spacer * 1.5,
+        6: $spacer * 2,
+        7: $spacer * 2.5,
+        8: $spacer * 3,
+);
+
 $font-size-base:              1rem; // Assumes the browser default, typically `16px`
+$font-size-sm:                $font-size-base * .9375 !default;
+
 $small-font-size:             .8125rem;
+$h1-font-size:                $font-size-base * 2;
+
+$border-radius:               .5rem;
+$border-radius-sm:            .5rem;
 
 $input-btn-padding-y:         .5rem;
 $input-btn-padding-x:         .75rem;
@@ -52,6 +71,7 @@ $input-btn-padding-x-sm:      .5rem;
 //$btn-padding-x:               $input-btn-padding-x;
 //$btn-line-height:             $input-btn-line-height;
 $btn-color:                   var(--#{$prefix}white-rgb);
+$btn-font-weight: 500;
 
 $accordion-border-width: 0;
 $accordion-border-radius: 0;
@@ -76,6 +96,19 @@ $nav-tabs-border-width:             0;
 $nav-tabs-border-radius:            var(--#{$prefix}border-radius);
 $nav-tabs-link-active-color:        var(--#{$prefix}body-color);
 $nav-tabs-link-active-bg:           var(--#{$prefix}secondary);
+
+//$card-border-width:                 var(--#{$prefix}border-width);
+$card-border-width:                 0;
+$card-img-overlay-padding:          .625rem $spacer $spacer;
+
+$carousel-indicator-width:           6px;
+$carousel-indicator-height:          6px;
+$carousel-indicator-hit-area-height: 4px;
+$carousel-indicator-spacer:          6px;
+$carousel-indicator-opacity:         1;
+$carousel-indicator-active-bg:       $tertiary;
+$carousel-indicator-active-opacity:  1;
+$carousel-indicator-transition:      opacity .6s ease;
 
 @import "~bootstrap/scss/mixins/banner";
 @include bsBanner("");
@@ -131,7 +164,7 @@ $utilities: map-merge(
 @import "~bootstrap/scss/button-group";
 @import "~bootstrap/scss/nav";
 
-$nav-tabs-link-padding-x: .75rem;
+$nav-tabs-link-padding-x: 0;//.75rem;
 $nav-tabs-link-padding-y: .375rem;
 $nav-tabs-link-padding-top: .1875rem;
 
@@ -158,6 +191,8 @@ $nav-tabs-link-padding-top: .1875rem;
 
 @import "~bootstrap/scss/navbar";
 @import "~bootstrap/scss/card";
+
+
 @import "~bootstrap/scss/accordion";
 .accordion {
   $accordion-icon-height: 1.1rem;
@@ -181,6 +216,28 @@ $nav-tabs-link-padding-top: .1875rem;
 @import "~bootstrap/scss/tooltip";
 @import "~bootstrap/scss/popover";
 @import "~bootstrap/scss/carousel";
+.carousel-indicators {
+  margin-bottom: 1.2rem;
+
+  .indicator {
+    @extend [data-bs-target];
+
+    position: relative;
+
+    &:after {
+      content: "";
+      position: absolute;
+      left: -$carousel-indicator-hit-area-height/2;
+      right: -$carousel-indicator-hit-area-height/2;
+      top: -$carousel-indicator-hit-area-height/2;
+      bottom: -$carousel-indicator-hit-area-height/2;
+    }
+
+    &.active:after {
+      background: $success;
+    }
+  }
+}
 @import "~bootstrap/scss/spinners";
 @import "~bootstrap/scss/offcanvas";
 @import "~bootstrap/scss/placeholders";
@@ -203,7 +260,9 @@ $flag-icons-path: '../../node_modules/flag-icons/flags';
   height: 1.333em;
   text-decoration: none;
 }
+@import "./custom/block/card";
 @import "./custom/block/carousel";
 @import "./custom/block/provider";
 @import "./custom/block/payment";
+@import "./custom/block/title";
 @import "./fonts/casino-icons";

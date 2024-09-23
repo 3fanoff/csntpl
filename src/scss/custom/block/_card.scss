@@ -1,0 +1,21 @@
+.cs-card {
+  min-height: 200px;
+  background-image: linear-gradient(90deg, var( --#{$prefix}quaternary ) 0%, var( --#{$prefix}quinary ) 100%);
+  width: 100%;
+
+  &-overlay-img {
+    mix-blend-mode: screen;
+    opacity: .33;
+    width: fit-content;
+    margin-left: auto;
+
+    @include media-breakpoint-up(md) {
+      width: 100%;
+    }
+  }
+
+  &-title {
+    height: 40px;
+    line-height: 1;
+  }
+}
