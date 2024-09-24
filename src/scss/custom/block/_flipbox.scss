@@ -1,0 +1,51 @@
+.cs-flipbox {
+  $selector: &;
+  position: relative;
+
+  &:hover {
+    #{$selector}-front {
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    #{$selector}-back {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+
+  &-container {
+    overflow: hidden;
+  }
+
+  &-front {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+
+    opacity: 1;
+    visibility: visible;
+    transition: opacity .3s, visibility .3s;
+
+    background-image: linear-gradient(180deg, var(--#{$prefix}quinary) 0%, var(--#{$prefix}tertiary) 100%);
+  }
+
+  &-back {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .3s;
+
+    background-image: linear-gradient(180deg, var(--#{$prefix}primary) 0%, var(--#{$prefix}tertiary) 100%);
+  }
+
+  &-front,
+  &-back {
+    display: flex;
+    flex-direction: column;
+    height: 280px;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+  }
+}

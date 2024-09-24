@@ -6,7 +6,7 @@
   &-overlay-img {
     mix-blend-mode: screen;
     opacity: .33;
-    width: fit-content;
+    //width: fit-content;
     margin-left: auto;
 
     @include media-breakpoint-up(md) {

@@ -58,7 +58,15 @@ $spacers: (
 );
 
 $font-size-base:              1rem; // Assumes the browser default, typically `16px`
-$font-size-sm:                $font-size-base * .9375 !default;
+$font-size-sm:                $font-size-base * .9375;
+$font-sizes: (
+        12: $font-size-base * .75,
+        13: $font-size-base * .8125,
+        14: $font-size-base * .875,
+        16: $font-size-base,
+        20: $font-size-base * 1.25,
+        24: $font-size-base * 1.5
+);
 
 $small-font-size:             .8125rem;
 $h1-font-size:                $font-size-base * 2;
@@ -289,6 +297,7 @@ $flag-icons-path: '../../node_modules/flag-icons/flags';
 @import "./custom/block/card";
 @import "./custom/block/carousel";
 @import "./custom/block/copyright";
+@import "./custom/block/flipbox";
 @import "./custom/block/limits";
 @import "./custom/block/provider";
 @import "./custom/block/payment";
