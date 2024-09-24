@@ -84,6 +84,7 @@ $input-btn-padding-x-sm:      .5rem;
 //$btn-line-height:             $input-btn-line-height;
 $btn-color:                   var(--#{$prefix}white-rgb);
 $btn-font-weight: 500;
+$btn-focus-box-shadow: none;
 
 $accordion-border-width: 0;
 $accordion-border-radius: 0;
@@ -163,7 +164,30 @@ $utilities: map-merge(
   )
 );
 
+$utilities: map-merge(
+  $utilities,
+  (
+    "background-color": (
+      property: background-color,
+      class: bg,
+      values: (
+        "primary": var(--#{$prefix}primary),
+        "secondary": var(--#{$prefix}secondary),
+        "tertiary": var(--#{$prefix}tertiary),
+        "quaternary": var(--#{$prefix}quaternary),
+        "quinary": var(--#{$prefix}quinary),
+        "accent": var(--#{$prefix}accent),
+        "success": var(--#{$prefix}success),
+        "dark": var(--#{$prefix}dark),
+        "light": var(--#{$prefix}light),
+        "transparent": transparent,
+        "body-secondary": var(--#{$prefix}secondary-bg),
+        "body-tertiary": var(--#{$prefix}tertiary-bg),
+      )
 
+    )
+  )
+);
 // Layout & components
 @import "~bootstrap/scss/root";
 @import "~bootstrap/scss/reboot";
@@ -176,10 +200,19 @@ $utilities: map-merge(
 @import "~bootstrap/scss/buttons";
 @each $color, $value in $theme-colors {
   .btn-#{$color} {
-    --#{$prefix}btn-color: var(--#{$prefix}white);
-    --#{$prefix}btn-hover-color: var(--#{$prefix}white);
+    --#{$prefix}btn-bg: var(--#{$prefix}#{$color});
+    --#{$prefix}btn-hover-bg: var(--#{$prefix}#{$color});
+    --#{$prefix}btn-active-bg: var(--#{$prefix}#{$color});
+    --#{$prefix}btn-border-color: var(--#{$prefix}#{$color});
+    --#{$prefix}btn-hover-border-color: var(--#{$prefix}#{$color});
+    --#{$prefix}btn-active-border-color: var(--#{$prefix}#{$color});
   }
 }
+
+.btn:hover {
+  transform: translate(1px, 1px);
+}
+
 @import "~bootstrap/scss/transitions";
 @import "~bootstrap/scss/dropdown";
 @import "~bootstrap/scss/button-group";
@@ -258,7 +291,7 @@ $carousel-control-active-color: var(--#{$prefix}success);
     }
 
     &.active:after {
-      background: $success;
+      background: var(--#{$prefix}success);
     }
   }
 }
@@ -282,6 +315,50 @@ $carousel-control-active-color: var(--#{$prefix}success);
 // Utilities
 @import "~bootstrap/scss/utilities/api";
 // scss-docs-end import-stack
+
+:root {
+  --cs-color-var1: #{$primary};
+  --cs-color-var2: #{$secondary};
+  --cs-color-var3: #{$tertiary};
+  --cs-color-var4: #{$quaternary};
+  --cs-color-var5: #{$quinary};
+  --cs-color-var6: #{$accent};
+  --cs-color-var7: #{$success};
+  --cs-link-color: #{$success};
+  --cs-button-color: #FFF;
+  --cs-button-border-radius: .5rem;
+  --#{$prefix}primary: var(--cs-color-var1);
+  --#{$prefix}secondary: var(--cs-color-var2);
+  --#{$prefix}tertiary: var(--cs-color-var3);
+  --#{$prefix}quaternary: var(--cs-color-var4);
+  --#{$prefix}quinary: var(--cs-color-var5);
+  --#{$prefix}accent: var(--cs-color-var6);
+  --#{$prefix}success: var(--cs-color-var7);
+
+  --#{$prefix}body-bg: var(--cs-color-var2);
+
+  --#{$prefix}link-color: var(--cs-link-color);
+  --#{$prefix}link-hover-color: var(--cs-link-color);
+
+  .btn {
+    --#{$prefix}btn-color: var(--cs-button-color);
+    --#{$prefix}btn-hover-color: var(--cs-button-color);
+    --#{$prefix}btn-border-radius: var(--cs-button-border-radius)
+  }
+}
+
+[data-bs-theme="dark-yellow"] {
+  --cs-color-var1: #1B1B1D;//#{$primary};
+  --cs-color-var2: #20292D;//#{$secondary};
+  --cs-color-var3: #141318;//#{$tertiary};
+  --cs-color-var4: #1B1B1D;//#{$quaternary};
+  --cs-color-var5: #088C4F;//#{$quinary};
+  --cs-color-var6: #FFD800;//#{$accent};
+  --cs-color-var7: #FDE4A5;//#{$success};
+  --cs-link-color: #FDE4A5;//#{$success};
+  --cs-button-color: #000;//#{$success};
+  --cs-button-border-radius: .9375rem;
+}
 
 $flag-icons-included-countries: (
   ru, gb, fr, de, es, kz, us, it
