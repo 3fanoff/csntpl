@@ -12,6 +12,7 @@ if ((carousels = document.querySelectorAll('.js-carousel-gallery')).length) {
 const tabEmulationNodes = document.querySelectorAll('[data-emulation-tab]')
 Array.prototype.slice.call(tabEmulationNodes).forEach(emulationNode => {
   emulationNode.addEventListener('click', (e) => {
+    e.preventDefault();
     const originalTabSelector = e.target.getAttribute('data-emulation-tab');
     const originalTabNode = document.querySelector(originalTabSelector);
     if (originalTabNode) originalTabNode.click();
@@ -26,6 +27,7 @@ Array.prototype.slice.call(tabEmulationNodes).forEach(emulationNode => {
 const tabOriginalNodes = document.querySelectorAll('[data-bs-toggle="tab"]');
 Array.prototype.slice.call(tabOriginalNodes).forEach(originalNode => {
   originalNode.addEventListener('show.bs.tab', (e) => {
+
     Array.prototype.slice.call(tabEmulationNodes).forEach(emulationNode => {
       let currentTabSelector = emulationNode.getAttribute('data-emulation-tab');
       if (currentTabSelector === '#' + e.target.id) {
@@ -36,7 +38,26 @@ Array.prototype.slice.call(tabOriginalNodes).forEach(originalNode => {
         emulationNode.classList.remove('active');
       }
     })
-    console.log('#' + e.target.id);
-    console.log('#' + e.relatedTarget.id);
+    //console.log('#' + e.target.id);
+    //console.log('#' + e.relatedTarget.id);
   })
 });
+
+const stickyHeader = document.getElementById('cs-header');
+if (stickyHeader) {
+  let headerIsShow = true;
+  const stickyFading = () => {
+    switch (true) {
+      case headerIsShow && window.scrollY >= 100:
+        stickyHeader.classList.remove('show');
+        headerIsShow = false;
+        break;
+      case !headerIsShow && window.scrollY < 100:
+        stickyHeader.classList.add('show');
+        headerIsShow = true;
+        break;
+    }
+  }
+  window.addEventListener('scroll', stickyFading)
+  stickyFading();
+}

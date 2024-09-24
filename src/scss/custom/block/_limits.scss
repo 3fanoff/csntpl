@@ -1,0 +1,13 @@
+.cs-limits {
+  font-size: 2.25rem;
+
+  &-item {
+    opacity: .8;
+    &:hover,
+    &:focus {
+      color: var(--#{$prefix}accent);
+    }
+  }
+
+
+}

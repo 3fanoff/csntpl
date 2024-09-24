@@ -1,8 +1,11 @@
+@use "sass:math";
+
 $primary:       #001022;
 $secondary:     #04386E;
 $tertiary:      #022244;
 $quaternary:    #0A519E;
 $quinary:       #0000EE;
+$accent:        #1183D3;
 $dark:          #000;
 $success:       #FA4D00;
 $light:         #DDE4EC;
@@ -21,6 +24,7 @@ $theme-colors: (
         "tertiary":   $tertiary,
         "quaternary": $quaternary,
         "quinary":    $quinary,
+        "accent":     $accent,
         "success":    $success,
         "dark":       $dark,
         "light":      $light,
@@ -108,7 +112,16 @@ $carousel-indicator-spacer:          6px;
 $carousel-indicator-opacity:         1;
 $carousel-indicator-active-bg:       $tertiary;
 $carousel-indicator-active-opacity:  1;
-$carousel-indicator-transition:      opacity .6s ease;
+$carousel-indicator-transition:      background .6s ease;
+
+$carousel-control-color:             var(--#{$prefix}accent);
+$carousel-control-width:             60px;
+$carousel-control-opacity:           1;
+$carousel-control-hover-opacity:     1;
+$carousel-control-transition:        none;
+$carousel-control-prev-icon-bg:      '';
+$carousel-control-next-icon-bg:      '';
+$carousel-control-icon-width:        1.375rem;
 
 @import "~bootstrap/scss/mixins/banner";
 @include bsBanner("");
@@ -181,6 +194,7 @@ $nav-tabs-link-padding-top: .1875rem;
     padding: var(--#{$prefix}nav-tabs-link-padding-y) var(--#{$prefix}nav-tabs-link-padding-x);
     padding-top: var(--#{$prefix}nav-tabs-link-padding-top);
     line-height: var(--#{$prefix}body-line-height);
+    background: var(--#{$prefix}primary);
   }
   .nav-link:hover {
     color: var(--#{$prefix}nav-tabs-link-active-color);
@@ -216,6 +230,8 @@ $nav-tabs-link-padding-top: .1875rem;
 @import "~bootstrap/scss/tooltip";
 @import "~bootstrap/scss/popover";
 @import "~bootstrap/scss/carousel";
+
+$carousel-control-active-color: var(--#{$prefix}success);
 .carousel-indicators {
   margin-bottom: 1.2rem;
 
@@ -227,10 +243,10 @@ $nav-tabs-link-padding-top: .1875rem;
     &:after {
       content: "";
       position: absolute;
-      left: -$carousel-indicator-hit-area-height/2;
-      right: -$carousel-indicator-hit-area-height/2;
-      top: -$carousel-indicator-hit-area-height/2;
-      bottom: -$carousel-indicator-hit-area-height/2;
+      left: math.div($carousel-indicator-hit-area-height, -2);
+      right: math.div($carousel-indicator-hit-area-height, -2);
+      top: math.div($carousel-indicator-hit-area-height, -2);
+      bottom: math.div($carousel-indicator-hit-area-height, -2);
     }
 
     &.active:after {
@@ -238,6 +254,16 @@ $nav-tabs-link-padding-top: .1875rem;
     }
   }
 }
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-image: none;
+  fill: $carousel-control-color;
+
+  &:hover, &:focus {
+    fill: $carousel-control-active-color;
+  }
+}
+
 @import "~bootstrap/scss/spinners";
 @import "~bootstrap/scss/offcanvas";
 @import "~bootstrap/scss/placeholders";
@@ -262,6 +288,8 @@ $flag-icons-path: '../../node_modules/flag-icons/flags';
 }
 @import "./custom/block/card";
 @import "./custom/block/carousel";
+@import "./custom/block/copyright";
+@import "./custom/block/limits";
 @import "./custom/block/provider";
 @import "./custom/block/payment";
 @import "./custom/block/title";

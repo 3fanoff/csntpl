@@ -55,7 +55,7 @@ class CarouselGallery {
         e.preventDefault();
         if (this._inTransitioning) return;
 
-        switch (e.target.dataset.type) {
+        switch (e.currentTarget.dataset.type) {
           case 'prev':
             this.toLeftByXPos(this.offsetX);
             this.togglePointClassName(this.getActiveIndexByOffset(this.offsetX, 'prev'), this.activeIndex);
@@ -75,7 +75,7 @@ class CarouselGallery {
         e.preventDefault();
         if (this._inTransitioning) return;
 
-        let index = parseInt(e.target.dataset.index);
+        let index = parseInt(e.currentTarget.dataset.index);
         let newOffsetX = 0;
         if (index === this.activeIndex) return;
         if (index < this.activeIndex) {
