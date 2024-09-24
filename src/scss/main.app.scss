@@ -345,6 +345,11 @@ $carousel-control-active-color: var(--#{$prefix}success);
     --#{$prefix}btn-hover-color: var(--cs-button-color);
     --#{$prefix}btn-border-radius: var(--cs-button-border-radius)
   }
+
+  .btn-link {
+    --#{$prefix}btn-color: var(--cs-link-color);
+    --#{$prefix}btn-hover-color: var(--cs-link-color);
+  }
 }
 
 [data-bs-theme="dark-yellow"] {
