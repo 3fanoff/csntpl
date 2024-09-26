@@ -44,20 +44,8 @@ Array.prototype.slice.call(tabOriginalNodes).forEach(originalNode => {
 });
 
 const stickyHeader = document.getElementById('cs-header');
-if (stickyHeader) {
-  let headerIsShow = true;
-  const stickyFading = () => {
-    switch (true) {
-      case headerIsShow && window.scrollY >= 100:
-        stickyHeader.classList.remove('show');
-        headerIsShow = false;
-        break;
-      case !headerIsShow && window.scrollY < 100:
-        stickyHeader.classList.add('show');
-        headerIsShow = true;
-        break;
-    }
-  }
-  window.addEventListener('scroll', stickyFading)
-  stickyFading();
+const stickySidebar = document.getElementById('cs-sidebar');
+
+if (stickySidebar && stickyHeader) {
+  stickySidebar.style.top = stickyHeader.offsetHeight + 'px';
 }

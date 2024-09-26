@@ -1,15 +1,15 @@
 @font-face {
   font-family: 'casino';
   src:
-          url('@fonts/casino.ttf?9rdp6m') format('truetype'),
-          url('@fonts/casino.woff?9rdp6m') format('woff'),
-          url('@fonts/casino.svg?9rdp6m#casino') format('svg');
+          url('@fonts/casino.ttf?tjg83c') format('truetype'),
+          url('@fonts/casino.woff?tjg83c') format('woff'),
+          url('@fonts/casino.svg?tjg83c#casino') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
 }
 
-[class^="casino-"], [class*=" casino-"] {
+[class^="casino-"], [class*=" casino-"], .iconstyle {
   /* use !important to prevent issues with browser extensions that change fonts */
   font-family: 'casino' !important;
   speak: never;
@@ -24,6 +24,12 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.casino-minus:before {
+  content: "\e912";
+}
+.casino-plus:before {
+  content: "\e913";
+}
 .casino-eighteen:before {
   content: "\e900";
 }

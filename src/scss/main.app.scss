@@ -92,15 +92,15 @@ $accordion-bg: transparent;
 $accordion-color:                         var(--#{$prefix}body-color);
 $accordion-padding-y:                     0.625rem;
 $accordion-padding-x:                     0.625rem;
-$accordion-icon-color:                    $body-color;
-$accordion-icon-active-color:             $body-color;
+$accordion-icon-color:                    var(--#{$prefix}body-color);
+$accordion-icon-active-color:             var(--#{$prefix}accent);
 $accordion-icon-width:                    1rem;
 $accordion-button-active-bg:              transparent;
 $accordion-button-active-color:           $accordion-color;
 $accordion-button-focus-box-shadow: none;
 $accordion-button-padding-x: $accordion-padding-x + $accordion-icon-width;
-$accordion-button-icon:         url("data:image/svg+xml,<svg viewBox='0 0 448 512' xmlns='http://www.w3.org/2000/svg' fill='#{$accordion-icon-color}'><path d='M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z'></path></svg>");
-$accordion-button-active-icon:  url("data:image/svg+xml,<svg viewBox='0 0 448 512' xmlns='http://www.w3.org/2000/svg' fill='#{$accordion-icon-active-color}'><path d='M416 208H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h384c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z'></path></svg>");
+$accordion-button-icon:         "\e913";
+$accordion-button-active-icon:  "\e912";
 
 $nav-link-color:                    var(--#{$prefix}body-color);
 $nav-link-padding-x:                .4rem;
@@ -250,13 +250,21 @@ $nav-tabs-link-padding-top: .1875rem;
 
 @import "~bootstrap/scss/accordion";
 .accordion {
-  $accordion-icon-height: 1.1rem;
-  --#{$prefix}accordion-btn-icon-height: #{$accordion-icon-height};
+  --#{$prefix}accordion-icon-color: #{$accordion-icon-color};
+  --#{$prefix}accordion-icon-active-color: #{$accordion-icon-active-color};
 }
 .accordion-button::after {
+  @extend .iconstyle;
   position: absolute;
   left: 0;
-  height: var(--#{$prefix}accordion-btn-icon-height);
+  background-image: none;
+  content: $accordion-button-icon;
+  color: var(--#{$prefix}accordion-icon-color);
+}
+.accordion-button:not(.collapsed)::after {
+  content: $accordion-button-active-icon;
+  color: var(--#{$prefix}accordion-icon-active-color);
+  background-image: none;
 }
 
 @import "~bootstrap/scss/breadcrumb";
@@ -327,6 +335,9 @@ $carousel-control-active-color: var(--#{$prefix}success);
   --cs-link-color: #{$success};
   --cs-button-color: #FFF;
   --cs-button-border-radius: .5rem;
+  --cs-faq-icon-color: #FFF;
+  --cs-faq-icon-color-active: #{$accent};
+
   --#{$prefix}primary: var(--cs-color-var1);
   --#{$prefix}secondary: var(--cs-color-var2);
   --#{$prefix}tertiary: var(--cs-color-var3);
@@ -350,6 +361,11 @@ $carousel-control-active-color: var(--#{$prefix}success);
     --#{$prefix}btn-color: var(--cs-link-color);
     --#{$prefix}btn-hover-color: var(--cs-link-color);
   }
+
+  .accordion {
+    --#{$prefix}accordion-icon-color: var(--cs-faq-icon-color);
+    --#{$prefix}accordion-icon-active-color: var(--cs-faq-icon-color-active);
+  }
 }
 
 [data-bs-theme="dark-yellow"] {
@@ -363,6 +379,8 @@ $carousel-control-active-color: var(--#{$prefix}success);
   --cs-link-color: #FDE4A5;//#{$success};
   --cs-button-color: #000;//#{$success};
   --cs-button-border-radius: .9375rem;
+  --cs-faq-icon-color: #FFD800;
+  --cs-faq-icon-color-active: #FFD800;
 }
 
 $flag-icons-included-countries: (
